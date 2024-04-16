@@ -1,16 +1,12 @@
 from django.utils import timezone
 from django.db import models
-# obtain URL path as a string from given view name and optional parameters
-# instead of hardcoding URLs in your views and templates, you use the name of the URL pattern and optionally any args to resolve the URL
 from django.urls import reverse
 
 # utility function for setting ToDoItem default due dates 
 def one_week_hence(): 
     return timezone.now() + timezone.timedelta(days=7)
 
-# extends django.db.models.Model superclass 
 class ToDoList(models.Model): 
-    # define data fields in model 
     title = models.CharField(max_length=100, unique=True)
 
     # constructs a URL for individual to-do list 
